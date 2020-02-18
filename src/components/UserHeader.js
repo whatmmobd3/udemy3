@@ -9,7 +9,8 @@ class UserHeader extends React.Component {
     render() {
 
         return (
-            <div className="header">load</div>
+            <div className="header">load memozie</div>
+            
         )
     }
 }
