@@ -2,10 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 class UserHeader extends React.Component {
-    componentDidMount() {
-    }
     render() {
-        // const user = this.props.users.find(e => e.id === this.props.userId)
         const { user } = this.props
 
         if (!user) {
