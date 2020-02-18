@@ -1,22 +1,27 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { fetchPosts } from '../actions'
+import UserHeader from './UserHeader'
+
 
 class App extends React.Component {
-    componentDidMount() {
-        this.props.fetchPosts()
+     componentDidMount() {
+         this.props.fetchPosts()
+
     }
 
     renderList() {
+
         return this.props.posts.map(element => {
             return (
                 <div key={element.id} className="ui segment item">
                     <i className="facebook square icon" />
                     <div className="content">
-                        {element.title}
-                    </div>
-                    <div className="description">
-                        {element.body}
+                        <div className="description">
+                            {element.title}
+                            {element.body}
+                        </div>
+                        <UserHeader userId={element.userId} />
                     </div>
                 </div>
             )
@@ -32,9 +37,11 @@ class App extends React.Component {
 }
 
 const mapStateToProps = state => {
-    console.log(state.posts);
-    
-    return { posts: state.posts }
+    console.log(state);
+
+    return { 
+        posts: state.posts,
+     }
 }
 
 export default connect(
